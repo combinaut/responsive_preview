@@ -8,7 +8,7 @@ module ResponsivePreview
       status, headers, body = @app.call(env)
       action_controller = env['action_controller.instance']
 
-      if action_controller&.wants_responsive_preview?
+      if action_controller.try(:wants_responsive_preview?)
         original_response_body = body_to_string(body)
         body = action_controller.render_to_string(html: original_response_body, layout: "responsive_preview")
         headers["Content-Length"] = body.bytesize.to_s
