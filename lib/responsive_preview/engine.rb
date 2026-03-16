@@ -15,6 +15,7 @@ module ResponsivePreview
 
     initializer 'responsive_preview.load_helpers' do
       ActiveSupport.on_load(:action_controller) do
+        require_relative '../../app/helpers/responsive_preview/view_helper'
         helper ResponsivePreview::ViewHelper
       end
     end
