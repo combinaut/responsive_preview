@@ -6,3 +6,7 @@ test/dummy/log/*.log
 test/dummy/tmp/
 *.gem
 .DS_Store
+
+# Claude
+.claude/settings.local.json
+.claude/worktrees/*
