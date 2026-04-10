@@ -1,0 +1,5 @@
+require 'minitest/autorun'
+require 'rack/test'
+require 'rails'
+require 'action_controller/railtie'
+require 'responsive_preview'

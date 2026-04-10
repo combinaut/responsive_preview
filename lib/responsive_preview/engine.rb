@@ -10,12 +10,13 @@ module ResponsivePreview
     end
 
     initializer 'responsive_preview.append_precompile_assets' do |app|
-      config.assets.precompile += %w(responsive_preview.js)
+      if app.config.respond_to?(:assets)
+        app.config.assets.precompile += %w(responsive_preview.js)
+      end
     end
 
     initializer 'responsive_preview.load_helpers' do
       ActiveSupport.on_load(:action_controller) do
-        require_relative '../../app/helpers/responsive_preview/view_helper'
         helper ResponsivePreview::ViewHelper
       end
     end
